@@ -7,8 +7,10 @@ import { Outlet } from "react-router";
 function App() {
   return (
     <>
+    <nav>Navbar</nav>
       <Outlet />
-      <div>home page</div>
+      <footer>Footer</footer>
+      
 
     </>
   );
