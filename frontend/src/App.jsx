@@ -1,18 +1,17 @@
-import { useState } from 'react'
+import { useState } from "react";
 
-import './App.css'
+import "./App.css";
 
-import { Outlet } from 'react-router'
+import { Outlet } from "react-router";
 
 function App() {
-  
-
   return (
     <>
-    <Outlet/>   
-     
+      <Outlet />
+      <div>home page</div>
+
     </>
-  )
+  );
 }
 
-export default App
+export default App;
