@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import BlogCard from "./BlogCard";
 
 const BlogList = () => {
   const [blogs, setBlogs] = useState([]);
@@ -13,12 +14,10 @@ const BlogList = () => {
   return (
     <>
       <div className=" container mx-auto">
-        <div>
+        <div className="grid grid-col-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {
-                blogs.map((blogs, idx) => (
-                    <div key={idx}>
-                        <h1>{blogs.title}</h1>
-                    </div>
+                blogs.map((blog, idx) => (
+                    <BlogCard key={idx} blog={blog}/>
                 ))
             }
         </div>
