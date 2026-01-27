@@ -5,6 +5,7 @@ import App from "./App.jsx";
 import Home from "./pages/home/Home.jsx";
 import Blogs from "./pages/blogs/Blogs.jsx";
 import About from "./pages/about/about.jsx";
+import Contact from "./pages/contact/Contact.jsx";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -13,7 +14,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/" element={<Home />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<div>Contact</div>} />
+        <Route path="/contact" element={<Contact />} />
       </Route>
     </Routes>
   </BrowserRouter>,
