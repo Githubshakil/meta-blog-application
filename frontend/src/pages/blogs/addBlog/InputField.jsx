@@ -1,12 +1,13 @@
 import React from "react";
 
-const InputField = ({ label, placeholder, id, type }) => {
+const InputField = ({ label, placeholder, id, type, register }) => {
   return (
     <div>
       <label className="block text-gray-700 font-semibold mb-2" htmlFor={id}>
         {label}
       </label>
       <input
+        {...register}
         type={type}
         id={id}
         placeholder={placeholder}

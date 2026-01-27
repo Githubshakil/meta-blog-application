@@ -1,8 +1,26 @@
 import React from "react";
 import InputField from "./InputField";
 import TextAreaField from "./TextAreaField";
+import { useForm } from "react-hook-form";
 
 const AddBlog = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    const blogData = {
+        title: data.title,
+        description: data.description,
+        author:{
+            name: data.authorName,
+            image: data.authorImageURL
+        },
+    }
+    console.log(blogData)
+  };
   return (
     <>
       <div className=" container max-w-7xl mx-auto px-4 py-24">
@@ -10,38 +28,46 @@ const AddBlog = () => {
 
         {/* form */}
         <div>
-          <form className="bg-white max-w-3xl p-6 rounded-lg shadow-md space-y-4">
-            <InputField 
-            label="Blog Title"
-            placeholder="Enter Blog Title"
-            id="Title"
-            type="text"
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="bg-white max-w-3xl p-6 rounded-lg shadow-md space-y-4"
+          >
+            <InputField
+              label="Blog Title"
+              placeholder="Enter Blog Title"
+              id="title"
+              type="text"
+              register={register("title", { required: true })}
             />
-                {/* text area */}
-                <TextAreaField 
-                label="Blog Description"
-                placeholder="Enter Blog Description"
-                id="description"
-                type="text"
-                />
-            
-            <InputField 
-            label="Author Name"
-            placeholder="Enter Author Name"
-            id="AuthorName"
-            type="text"
+            {/* text area */}
+            <TextAreaField
+              label="Blog Description"
+              placeholder="Enter Blog Description"
+              id="description"
+              type="text"
+              register={register("description", { required: true })}
             />
-            <InputField 
-            label="Author Image URL"
-            placeholder="Enter Author Image URL"  
-            id="authorImageURL"
-            type="url"
+
+            <InputField
+              label="Author Name"
+              placeholder="Enter Author Name"
+              id="authorName"
+              type="text"
+              register={register("authorName", { required: true })}
             />
-            <InputField 
-            label="Blog Image URL"
-            placeholder="Enter Blog Image URL"
-            id="image"
-            type="url"
+            <InputField
+              label="Author Image URL"
+              placeholder="Enter Author Image URL"
+              id="authorImageURL"
+              type="url"
+              register={register("authorImageURL", { required: true })}
+            />
+            <InputField
+              label="Blog Image URL"
+              placeholder="Enter Blog Image URL"
+              id="image"
+              type="url"
+              register={register("image", { required: true })}
             />
 
             <div>
