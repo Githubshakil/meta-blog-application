@@ -16,7 +16,7 @@ function Banner() {
                     <Link to="/add-blog" className='bg-secondary/10 px-3 py-1 rounded-full hover:text-secondary hover:underline underline-offset-4'>Add New Blog</Link>
                 </li>
                 <li>
-                    <Link to="/manage-blog" className='bg-secondary/10 px-3 py-1 rounded-full hover:text-secondary hover:underline underline-offset-4'>Manage Blog</Link>
+                    <Link to="/manage-blogs" className='bg-secondary/10 px-3 py-1 rounded-full hover:text-secondary hover:underline underline-offset-4'>Manage Blog</Link>
                 </li>
             </ul>
         </div>

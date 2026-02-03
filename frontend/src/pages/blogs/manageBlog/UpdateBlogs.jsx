@@ -1,30 +1,30 @@
-import React from "react";
-import InputField from "./InputField";
-import TextAreaField from "./TextAreaField";
 import { useForm } from "react-hook-form";
+import InputField from "../addBlog/InputField";
+import TextAreaField from "../addBlog/TextAreaField";
 
-const AddBlog = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
 
-  const onSubmit = (data) => {
-    const blogData = {
-        title: data.title,
-        description: data.description,
-        author:{
-            name: data.authorName,
-            image: data.authorImageURL
-        },
-    }
-    console.log(blogData)
-  };
+const UpdateBlogs = () => {
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+      } = useForm();
+    
+      const onSubmit = (data) => {
+        const blogData = {
+            title: data.title,
+            description: data.description,
+            author:{
+                name: data.authorName,
+                image: data.authorImageURL
+            },
+        }
+        console.log(blogData)
+      };
   return (
     <>
-      <div className=" container max-w-7xl mx-auto px-4 py-24">
-        <h2 className="text-2xl font-bold mb-6">Add New Blog</h2>
+         <div className=" container max-w-7xl mx-auto px-4 py-24">
+        <h2 className="text-2xl font-bold mb-6">Update Blog</h2>
 
         {/* form */}
         <div>
@@ -75,14 +75,14 @@ const AddBlog = () => {
                 type="submit"
                 className="w-full bg-secondary hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
               >
-                Add Blog
+               Update
               </button>
             </div>
           </form>
         </div>
-      </div>
+      </div>   
     </>
-  );
-};
+  )
+}
 
-export default AddBlog;
+export default UpdateBlogs
