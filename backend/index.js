@@ -4,7 +4,8 @@ const mongoose = require('mongoose');
 const port = process.env.PORT || 5000
 require('dotenv').config()
 
-
+//middleware
+app.use(express.json())
 //routes
 
 const blogRoutes = require('./src/routes/blog.route')
