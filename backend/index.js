@@ -1,11 +1,13 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const port = process.env.PORT || 5000
 
+//routs
 app.get('/', (req, res) => {
-  res.send('Hello Developers!')
+  res.send('Meta Blog Server is running....!')
 })
 
-app.listen(port, () => {
+
+app.listen(port, () =>{
   console.log(`Example app listening on port ${port}`)
 })
