@@ -5,6 +5,12 @@ const port = process.env.PORT || 5000
 require('dotenv').config()
 
 
+//routes
+
+const blogRoutes = require('./src/routes/blog.route')
+app.use('/blogs', blogRoutes)
+
+
 
 
 //mongoose configuration
