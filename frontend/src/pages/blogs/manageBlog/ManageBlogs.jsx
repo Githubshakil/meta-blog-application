@@ -1,8 +1,10 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
 
 const ManageBlogs = () => {
   const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetch("http://localhost:5000/blogs")
@@ -12,6 +14,21 @@ const ManageBlogs = () => {
   }, []);
 
   console.log(blogs);
+
+  const handleDelete = async (id) => {
+    if (window.confirm("Are you sure you want to delete this blog?")) {
+      try {
+        setLoading(true);
+        await axios.delete(`http://localhost:5000/blogs/${id}`);
+        setBlogs(blogs.filter((blog) => blog._id !== id));
+        alert("Blog deleted successfully");
+      } catch (error) {
+        console.log("Error deleting blog:" + error);
+      } finally {
+        setLoading(false);
+      }
+    }
+  };
   return (
     <section className=" container max-w-7xl mx-auto px-4 py-24">
       <h2 className="text-2xl font-bold mb-6">Manage Your Blogs</h2>
@@ -79,12 +96,13 @@ const ManageBlogs = () => {
                     >
                       Edit
                     </Link>
-                    <Link
-                      to={`/blogs/${blog._id}`}
-                      className="bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600 transition-colors"
+                    <button
+                      onClick={() => handleDelete(blog?._id)}
+                      disabled={loading}
+                      className="bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600 transition-colors disabled:bg-red-400 disabled:cursor-not-allowed"
                     >
-                     <button>Delete</button>
-                    </Link>
+                      {loading ? "Deleting..." : "Delete"}
+                    </button>
                   </td>
                 </tr>
               ))}

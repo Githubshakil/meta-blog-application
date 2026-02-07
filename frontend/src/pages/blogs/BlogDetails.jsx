@@ -8,14 +8,14 @@ import Loading from "../../components/Loading";
 const BlogDetails = () => {
   const { id } = useParams();
   const [blog, setBlog] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [isloading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchBlog = async () => {
       try {
         const response = await axios.get(`http://localhost:5000/blogs/${id}`);
         setBlog(response.data.blog);
-        setLoading(false);
+        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching blog details:", error);
       }
@@ -24,12 +24,10 @@ const BlogDetails = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  if (loading)
-    return (
-      <div>
-        <Loading />
-      </div>
-    );
+  if (isloading) return <Loading />;
+
+
+
   return (
     <div className="conatainer max-w-7xl mx-auto px-4 py-8">
       <div>
@@ -54,9 +52,7 @@ const BlogDetails = () => {
           className="w-full md:h-120 object-cover rounded-md mb-4"
         />
         <div className=" space-y-4">
-          <p>
-            {blog?.description}
-          </p>
+          <p>{blog?.description}</p>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
             eius pariatur et cupiditate commodi saepe vitae reprehenderit,
