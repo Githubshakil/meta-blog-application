@@ -1,12 +1,13 @@
 import { useForm } from "react-hook-form";
 import InputField from "../addBlog/InputField";
 import TextAreaField from "../addBlog/TextAreaField";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { useEffect } from "react";
 import axios from "axios";
 
 const UpdateBlogs = () => {
   const { id } = useParams();
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
@@ -35,7 +36,7 @@ const UpdateBlogs = () => {
         fetchSingleBlog()
     },[id, setValue])
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const blogData = {
       title: data.title,
       description: data.description,
@@ -44,7 +45,18 @@ const UpdateBlogs = () => {
         image: data.authorImageURL,
       },
     };
-    console.log(blogData);
+    try {
+      const response = await axios.put(`http://localhost:5000/blogs/${id}`, blogData);
+      console.log(response.data)
+      if(response.status === 200){
+        alert("Blog updated successfully")
+        reset()
+        navigate('/')
+      }
+    } catch (error) {
+      console.log("Failed to update blog data", error)
+    }
+    
   };
   return (
     <>

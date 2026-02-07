@@ -3,8 +3,10 @@ import InputField from "./InputField";
 import TextAreaField from "./TextAreaField";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { useNavigate } from "react-router";
 
 const AddBlog = () => {
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
@@ -28,6 +30,7 @@ const AddBlog = () => {
     if(response.status === 200){
         alert("Blog added successfully")
         reset()
+        navigate('/')
     }
 
    } catch (error) {
