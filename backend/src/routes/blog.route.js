@@ -60,4 +60,19 @@ router.delete('/:id', async (req, res) => {
   }
 })
 
+//update a blog
+router.put('/:id', async (req, res) => {
+  try {
+    const {id} = req.params
+    const updatedBlog = await Blog.findByIdAndUpdate(id, req.body, {new: true})
+    if(!updatedBlog){
+      return res.status(404).send({ message: "Blog not found with the provided id!" });
+    }
+    res.status(200).send({ message: "Blog updated successfully!", updatedBlog });
+  } catch (error) {
+    console.log("Error updating a blog", error)
+    res.status(500).send({ message: "Error updating blog", error });
+  }
+})
+
 module.exports = router;
