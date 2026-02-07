@@ -45,4 +45,19 @@ router.post("/add-post", async (req, res) => {
   }
 });
 
+//delete a blog
+router.delete('/:id', async (req, res) => {
+  try {
+    const {id} = req.params
+    const deletedBlog = await Blog.findByIdAndDelete(id) 
+    if(!deletedBlog){
+      return res.status(404).send({ message: "Blog not found with the provided id!" });
+    }
+    res.status(200).send({ message: "Blog deleted successfully!", deletedBlog });
+  } catch (error) {
+    console.log("Error deleting a blog", error)
+    res.status(500).send({ message: "Error deleting blog", error });
+  }
+})
+
 module.exports = router;
