@@ -22,11 +22,11 @@ const UpdateBlogs = () => {
             const response = await axios.get(`http://localhost:5000/blogs/${id}`);
             
             const blog = response.data.blog
-            setValue('title', blog.title)
-            setValue('description', blog.description)
-            setValue('authorName', blog.author.name)
-            setValue('authorImageURL', blog.author.image)
-            setValue('image', blog.image)
+            setValue('title', blog?.title)
+            setValue('description', blog?.description)
+            setValue('authorName', blog?.author.name)
+            setValue('authorImageURL', blog?.author.image)
+            setValue('image', blog?.image)
             
           } catch (error) {
             console.log("Error fetching blog details:", error);
