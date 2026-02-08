@@ -1,10 +1,11 @@
-import React from "react";
+
 
 const About = () => {
+   
   return (
     <>
       <section className="py-28 pb-5">
-        <div className="container max-w-7xl px-4 mx-auto text-primary">
+        <div className="container max-w-7xl px-4 mx-auto ">
           {/* hero */}
           <div className="text-center mb-20">
             <h1 className="text-4xl font-semibold">About Us</h1>

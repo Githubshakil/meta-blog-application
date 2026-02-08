@@ -5,10 +5,8 @@
   --color-primary: #181a2a; 
   --color-secondary: #4b6bfb; 
   --color-acent: #e8e8ea; 
-
-
 }
 
-
-
-
+.dark{
+  @apply bg-gray-900 text-white;
+}
