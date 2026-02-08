@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router";
+import Reveal from "../../animation/Reveal";
 
 const BlogCard = ({ blog }) => {
   return (
     <>
-      <div className="border rounded-lg p-4 bg-white shadow-md">
+      <Reveal>
+        <div className="border rounded-lg p-4 bg-white shadow-md">
         <Link to={`/blogs/${blog?._id}`}>
           <img
             src={blog.image}
@@ -42,6 +44,7 @@ const BlogCard = ({ blog }) => {
           </div>
         </div>
       </div>
+      </Reveal>
     </>
   );
 };

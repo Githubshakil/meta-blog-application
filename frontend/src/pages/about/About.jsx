@@ -1,3 +1,4 @@
+import Reveal from "../../animation/Reveal";
 
 
 const About = () => {
@@ -7,7 +8,8 @@ const About = () => {
       <section className="py-28 pb-5">
         <div className="container max-w-7xl px-4 mx-auto ">
           {/* hero */}
-          <div className="text-center mb-20">
+          <Reveal>
+            <div className="text-center mb-20">
             <h1 className="text-4xl font-semibold">About Us</h1>
             <p className="mt-5">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem
@@ -17,9 +19,11 @@ const About = () => {
               expedita quibusdam totam officia possimus aspernatur,
             </p>
           </div>
+          </Reveal>
 
           {/* mission */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-20">
+          <Reveal>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-20">
             <div>
               <h2 className="text-3xl font-semibold mb-4">Our Mission</h2>
               <p className="mb-4">
@@ -43,9 +47,11 @@ const About = () => {
               />
             </div>
           </div>
+          </Reveal>
 
           {/* vision */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-20">
+        <Reveal>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-20">
             <div className="order-2 md:order-2">
               <h2 className="text-3xl font-semibold mb-4">Our vision </h2>
               <p className="mb-4">
@@ -68,9 +74,11 @@ const About = () => {
               />
             </div>
           </div>
+        </Reveal>
 
           {/* team section */}
-          <div>
+         <Reveal>
+           <div>
             <h2 className="text-3xl font-semibold mb-12 text-center ">
               Meet Our Team
             </h2>
@@ -113,9 +121,11 @@ const About = () => {
               </div>
             </div>
           </div>
+         </Reveal>
 
           {/* work with us */}
-          <div className="my-16 bg-no-repeat bg-cover rounded-md bg-secondary ">
+         <Reveal>
+           <div className="my-16 bg-no-repeat bg-cover rounded-md bg-secondary ">
             <div className="py-12 bg-black/40 rounded-md h-full flex items-center justify-center text-center">
               <div className="space-y-3 p-4">
                 <h2 className="text-2xl font-bold text-white">
@@ -130,6 +140,7 @@ const About = () => {
               </div>
             </div>
           </div>
+         </Reveal>
         </div>
       </section>
     </>

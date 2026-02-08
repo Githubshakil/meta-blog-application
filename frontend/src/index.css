@@ -9,4 +9,5 @@
 
 .dark{
   @apply bg-gray-900 text-white;
+  transition: all 0.3s ease-in-out;
 }

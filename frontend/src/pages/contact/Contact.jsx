@@ -1,17 +1,22 @@
 import React from "react";
 import contactImg from "../../assets/contact-animation.gif";
+import Reveal from "../../animation/Reveal";
 
 const Contact = () => {
   return (
     <>
       <section className="pt-28 pb-5">
-        <div className=" container max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-semibold text-center mb-12">
+        
+          <div className=" container max-w-7xl mx-auto px-4">
+         <Reveal>
+           <h2 className="text-3xl font-semibold text-center mb-12">
             Get in Tuch
           </h2>
+         </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
-            <div className=" space-y-4">
+           <Reveal>
+             <div className=" space-y-4">
               <img src={contactImg} alt="ContactImg" className="w-44" />
               <h3 className="text-xl font-semibold">Contact Information</h3>
               <p>
@@ -28,8 +33,11 @@ const Contact = () => {
                 <strong>Address:</strong> 123 Main Street, City, Country
               </p>
             </div>
+           </Reveal>
+                  
             <div>
-              <form className="bg-white p-6 rounded-lg shadow-md">
+             <Reveal>
+               <form className="bg-white p-6 rounded-lg shadow-md">
                 <div className="mb-4">
                   <label
                     className="block text-gray-700 font-semibold mb-2"
@@ -45,6 +53,9 @@ const Contact = () => {
                     className="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
+
+
+
                 <div className="mb-4">
                   <label
                     className="block text-gray-700 font-semibold mb-2"
@@ -97,6 +108,7 @@ const Contact = () => {
                     </button>
                 </div>
               </form>
+             </Reveal>
             </div>
           </div>
         </div>

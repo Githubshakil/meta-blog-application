@@ -1,19 +1,27 @@
 import React, { useContext, useEffect, useState } from "react";
 import BlogCard from "./BlogCard";
 import { BlogContext } from "../../context/BlogContext";
+import { motion } from "framer-motion";
+import Loading from "../../components/Loading";
+import { div } from "framer-motion/client";
+
 
 const BlogList = () => {
   const {searchTerm} = useContext(BlogContext)
   const [blogs, setBlogs] = useState([]);
   const [showBlogs, setShowBlogs] = useState(6);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetch("http://localhost:5000/blogs")
       .then((response) => response.json())
-      .then((data) => setBlogs(data.blogs))
+      .then((data) => {
+        setBlogs(data.blogs)
+        setLoading(false)
+      })
       .catch((error) => console.error("Error fetching blog data: " + error));
   }, []);
 
-  console.log(blogs)
+  // console.log(blogs)
 
   //filter blogs based on our title description author name
 
@@ -28,9 +36,15 @@ const BlogList = () => {
   const handleMoreBlogs = () => {
     setShowBlogs((prev) => prev + 3);
   };
+
+  if(loading) return <div className="my-10"><Loading /></div>
   return (
     <>
-      <div className=" container mx-auto">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+      className=" container mx-auto">
         <div className="grid grid-col-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {filteredBlogs.slice(0,showBlogs).map((blog, idx) => (
             <BlogCard key={idx} blog={blog} />
@@ -44,7 +58,7 @@ const BlogList = () => {
                 </div>
             )
         }
-      </div>
+      </motion.div>
     </>
   );
 };

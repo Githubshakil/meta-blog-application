@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
+import Reveal from "../../../animation/Reveal";
 
 const ManageBlogs = () => {
   const [blogs, setBlogs] = useState([]);
@@ -31,9 +32,12 @@ const ManageBlogs = () => {
   };
   return (
     <section className=" container max-w-7xl mx-auto px-4 py-24">
-      <h2 className="text-2xl font-bold mb-6">Manage Your Blogs</h2>
+      <Reveal>
+        <h2 className="text-2xl font-bold mb-6">Manage Your Blogs</h2>
+      </Reveal>
 
-      <div>
+    <Reveal>
+        <div>
         {blogs.length > 0 ? (
           <table className="w-full text-left table-auto min-w-max">
             <thead>
@@ -112,6 +116,7 @@ const ManageBlogs = () => {
           <div>No data found!</div>
         )}
       </div>
+    </Reveal>
     </section>
   );
 };

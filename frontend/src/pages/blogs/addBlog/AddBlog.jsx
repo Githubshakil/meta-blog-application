@@ -4,6 +4,7 @@ import TextAreaField from "./TextAreaField";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import Reveal from "../../../animation/Reveal";
 
 const AddBlog = () => {
   const navigate = useNavigate()
@@ -40,11 +41,14 @@ const AddBlog = () => {
   return (
     <>
       <div className=" container max-w-7xl mx-auto px-4 py-24">
-        <h2 className="text-2xl font-bold mb-6">Add New Blog</h2>
+       <Reveal>
+         <h2 className="text-2xl font-bold mb-6">Add New Blog</h2>
+       </Reveal>
 
         {/* form */}
         <div>
-          <form
+         <Reveal>
+           <form
             onSubmit={handleSubmit(onSubmit)}
             className="bg-white max-w-3xl p-6 rounded-lg shadow-md space-y-4"
           >
@@ -95,6 +99,7 @@ const AddBlog = () => {
               </button>
             </div>
           </form>
+         </Reveal>
         </div>
       </div>
     </>
