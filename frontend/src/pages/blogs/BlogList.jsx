@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import BlogCard from "./BlogCard";
+import { BlogContext } from "../../context/BlogContext";
 
 const BlogList = () => {
-  const [searchTerm] = useState(""); //todo:use blog context
+  const {searchTerm} = useContext(BlogContext)
   const [blogs, setBlogs] = useState([]);
   const [showBlogs, setShowBlogs] = useState(6);
   useEffect(() => {

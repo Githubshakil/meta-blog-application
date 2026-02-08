@@ -6,6 +6,7 @@ import { Outlet } from "react-router";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { ThemeContext } from "./context/ThemContext";
+import { BlogProvider } from "./context/BlogContext";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -13,7 +14,8 @@ function App() {
   return (
     <>
     <ThemeContext.Provider value={{darkMode, setDarkMode}}>
-<div>
+      <BlogProvider>
+        <div>
       <Navbar />
     </div>
       <main className={`min-h-screen ${darkMode ? 'dark' : ''}`}>
@@ -22,6 +24,8 @@ function App() {
       <div>
         <Footer />
       </div>
+      </BlogProvider>
+
     </ThemeContext.Provider>
     
       
