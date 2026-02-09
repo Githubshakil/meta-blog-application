@@ -1,5 +1,5 @@
 import Reveal from "../../animation/Reveal";
-import About from "./pages/about.jsx";
+
 
 
 const About = () => {
