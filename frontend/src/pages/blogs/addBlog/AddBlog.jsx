@@ -26,7 +26,7 @@ const AddBlog = () => {
         },
     }
    try {
-    const response = await axios.post(`http://localhost:5000/blogs/add-post`, blogData); 
+    const response = await axios.post(`https://meta-blog-backend-final.vercel.app/blogs/add-post`, blogData); 
     // console.log("Blog added successfully:", response.data);
     if(response.status === 200){
         alert("Blog added successfully")

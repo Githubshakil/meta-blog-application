@@ -20,7 +20,7 @@ const UpdateBlogs = () => {
     useEffect(() => {
         const fetchSingleBlog = async () => {
           try {
-            const response = await axios.get(`http://localhost:5000/blogs/${id}`);
+            const response = await axios.get(`https://meta-blog-backend-final.vercel.app/blogs/${id}`);
             
             const blog = response.data.blog
             setValue('title', blog?.title)
@@ -46,7 +46,7 @@ const UpdateBlogs = () => {
       },
     };
     try {
-      const response = await axios.put(`http://localhost:5000/blogs/${id}`, blogData);
+      const response = await axios.put(`https://meta-blog-backend-final.vercel.app/blogs/${id}`, blogData);
       console.log(response.data)
       if(response.status === 200){
         alert("Blog updated successfully")

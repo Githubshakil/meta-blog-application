@@ -8,7 +8,7 @@ const ManageBlogs = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/blogs")
+    fetch("https://meta-blog-backend-final.vercel.app/blogs")
       .then((response) => response.json())
       .then((data) => setBlogs(data.blogs))
       .catch((error) => console.error("Error fetching blog data: " + error));
@@ -20,7 +20,7 @@ const ManageBlogs = () => {
     if (window.confirm("Are you sure you want to delete this blog?")) {
       try {
         setLoading(true);
-        await axios.delete(`http://localhost:5000/blogs/${id}`);
+        await axios.delete(`https://meta-blog-backend-final.vercel.app/blogs/${id}`);
         setBlogs(blogs.filter((blog) => blog._id !== id));
         alert("Blog deleted successfully");
       } catch (error) {
